@@ -1,0 +1,95 @@
+// This code is from Chapter 2, Problem 2_6, it is one possible way to solve the problem, WITHOUT variables, or making a new method like turnRight()
+// The purpose of this code is to either be an answer key if one would like to check their work, or if someone would like to see how to go about the problem
+
+// Have fun :0
+
+import kareltherobot.*;
+import java.awt.Color;
+
+public class MountainClimber2_6 implements Directions
+{
+    /**
+     * Creates and positions a robot.
+     *
+     * @param args arguments from the command line
+     */
+    public static void main(String [] args)
+    {    
+        /* Sets up the GUI for the Karel world. */
+        
+        WorldBuilder myBuilder = new WorldBuilder(false); 
+        World.reset();
+        //World.showSpeedControl(true); // use setDelay method
+        //Path for worlds on PC 
+        //Path for worlds on Mac  
+        
+        /* Read a world from a file in the given directory path. */
+        // Edit to open the desired world
+        World.readWorld(pathMac, "fig2-9.kwld");    // Use for Mac
+        //World.readWorld(pathPC, "fig3-2.kwld");   // Use for PC 
+        World.setDelay(20);
+        World.setSize(10,10);
+
+        World.setVisible(true);
+
+        /* Creates a robot */
+        Robot karel = new Robot(1, 2, East, 1);
+
+        karel.setUserPause(true); //enables use of userPause
+        karel.userPause("start. Press [enter/return] to start");//pauses
+        
+        // go to base of mountain
+        karel.move();
+        
+        // go up first level 
+        karel.turnLeft();
+        karel.move();
+        karel.move();
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.turnLeft();
+        
+        // go to end of first level
+        karel.move();
+        karel.turnLeft();
+        
+        // climb to second level
+        karel.move();
+        karel.move();
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.turnLeft();
+        
+        // reach summit + plant beeper
+        karel.move();
+        karel.putBeeper();
+        
+        // reach end of summit
+        karel.move();
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.turnLeft();
+        
+        // climb down to second level
+        karel.move();
+        karel.move();
+        karel.turnLeft();
+        
+        // reach second level
+        karel.move();
+        
+        // climb down to first level
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.move();
+        karel.move();
+        
+        // go to base
+        karel.turnLeft();
+        karel.move();
+
+        /* Calls the method(s)to be tested. */
+        // for example:  karel.harvestField(); 
+    }
+}
