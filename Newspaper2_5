@@ -2,7 +2,7 @@ import kareltherobot.*;
 import java.awt.Color;
 
 // This code is from Chapter 2, Problem 2_5, it is one possible way to solve the problem, WITHOUT variables, or making a new method like turnRight()
-// The purpose of this code is to either be an answer key if one would like to checkt ehir work, or if someone would like to see how to go about the problem
+// The purpose of this code is to either be an answer key if one would like to check their work, or if someone would like to see how to go about the problem
 
 // Have fun :0
 
