@@ -1,0 +1,95 @@
+// This code is from Chapter 2, Problem 2_7, it is one possible way to solve the problem, WITHOUT variables, or making a new method like turnRight()
+// The purpose of this code is to either be an answer key if one would like to check their work, or if someone would like to see how to go about the problem
+
+// Have fun :)
+
+import kareltherobot.*;
+import java.awt.Color;
+
+public class GroceryPickup2_7 implements Directions
+{
+    /**
+     * Creates and positions a robot.
+     *
+     * @param args arguments from the command line
+     */
+    public static void main(String [] args)
+    {    
+        /* Sets up the GUI for the Karel world. */
+        
+        WorldBuilder myBuilder = new WorldBuilder(false); 
+        World.reset();
+        //World.showSpeedControl(true); // use setDelay method
+
+        /* Read a world from a file in the given directory path. */
+        // Edit to open the desired world
+        World.readWorld(pathMac, "fig2-10.kwld");    // Use for Mac
+        //World.readWorld(pathPC, "fig3-2.kwld");   // Use for PC 
+        World.setDelay(20);
+        World.setSize(10,10);
+
+        World.setVisible(true);
+
+        /* Creates a robot */
+        Robot karel = new Robot(5, 7, East, 0);
+
+        karel.setUserPause(true); //enables use of userPause
+        karel.userPause("start. Press [enter/return] to start");//pauses
+        
+        // exit house 
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.move();
+        karel.move();
+        
+        // pick up first item
+        karel.pickBeeper();
+        
+        // go to 2nd item
+        karel.move();
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.move();
+        
+        // pickup 2nd item
+        karel.pickBeeper();
+        
+        // go to 3rd item
+        karel.move();
+        karel.turnLeft();
+        karel.move();
+        
+        // pickup 3rd item
+        karel.pickBeeper();
+        
+        // go to 4th item
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.move();
+        
+        // pickup 4th item
+        karel.pickBeeper();
+        
+        // go to door 
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.move();
+        karel.move();
+        karel.move();
+        karel.turnLeft();
+        karel.move();
+        karel.move();
+        
+        // go to starting position
+        karel.move();
+        karel.move();
+        
+        
+        
+
+        /* Calls the method(s)to be tested. */
+        // for example:  karel.harvestField(); 
+    }
+}
