@@ -20,8 +20,8 @@ public class FigureEight2_9 implements Directions
         WorldBuilder myBuilder = new WorldBuilder(false); 
         World.reset();
         //World.showSpeedControl(true); // use setDelay method
-        String pathPC = "C:/ProgramData/HarkerCS/worldFilesDOS/"; //Path for worlds on PC 
-        String pathMac = "/Users/Shared/HarkerCS/worldFilesDOS/"; //Path for worlds on Mac  
+        //Path for worlds on PC 
+        //Path for worlds on Mac  
         
         /* Read a world from a file in the given directory path. */
         // Edit to open the desired world
