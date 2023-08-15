@@ -1,0 +1,100 @@
+// This code is from Chapter 2, Problem 2_9, it is one possible way to solve the problem, WITHOUT variables, or making a new method like turnRight()
+// The purpose of this code is to either be an answer key if one would like to check their work, or if someone would like to see how to go about the problem
+
+// Have fun :)
+
+import kareltherobot.*;
+import java.awt.Color;
+
+public class FigureEight2_9 implements Directions
+{
+    /**
+     * Creates and positions a robot.
+     *
+     * @param args arguments from the command line
+     */
+    public static void main(String [] args)
+    {    
+        /* Sets up the GUI for the Karel world. */
+        
+        WorldBuilder myBuilder = new WorldBuilder(false); 
+        World.reset();
+        //World.showSpeedControl(true); // use setDelay method
+        String pathPC = "C:/ProgramData/HarkerCS/worldFilesDOS/"; //Path for worlds on PC 
+        String pathMac = "/Users/Shared/HarkerCS/worldFilesDOS/"; //Path for worlds on Mac  
+        
+        /* Read a world from a file in the given directory path. */
+        // Edit to open the desired world
+        World.readWorld(pathMac, "fig2-12.kwld");    // Use for Mac
+        //World.readWorld(pathPC, "fig3-2.kwld");   // Use for PC 
+        World.setDelay(20);
+        World.setSize(10,10);
+
+        World.setVisible(true);
+
+        /* Creates a robot */
+        Robot karel = new Robot(3, 5, North, 0);
+
+        karel.setUserPause(true); //enables use of userPause
+        karel.userPause("start. Press [enter/return] to start");//pauses
+        
+        // turn to right
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.turnLeft();
+        
+        // reach edge of 8
+        karel.move();
+        
+        // reach middle of 8
+        karel.turnLeft();
+        karel.move();
+        karel.move();
+        
+        // reach end of middle
+        karel.turnLeft();
+        karel.move();
+        karel.move();
+        
+        // go to top of 8
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.move();
+        karel.move();
+        
+        // reach other end of top
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.move();
+        karel.move();
+        
+        // down to middle of 8
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.move();
+        karel.move();
+        
+        // go across middle
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.move();
+        karel.move();
+        
+        // down to bottom of 8
+        karel.turnLeft();
+        karel.move();
+        karel.move();
+        
+        // go to base position
+        karel.turnLeft();
+        karel.move();
+        karel.turnLeft();
+
+        /* Calls the method(s)to be tested. */
+        // for example:  karel.harvestField(); 
+    }
+}
