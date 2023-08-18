@@ -1,0 +1,124 @@
+import kareltherobot.*;
+import java.awt.Color;
+
+/**
+ * Harvest a field of crops, (5x6)
+ * 
+ * @author Mahika Pandit
+ * @version 6-13-23
+ * 
+ */
+
+// This code is from multiple codes, because of this it may have excess methods that do not apply to your code
+// The purpose of this code is to either be an answer key if one would like to check their work, or if someone would like to see how to go about the problem
+
+public class Harvester extends 
+{
+    /**
+     * Creates a Harvester object.
+     *
+     * @param street     specifies the vertical position on the grid
+     *                   of this robot.
+     * @param avenue     specifies the horizontal position on the grid
+     *                   of this robot.
+     * @param direction  specifies the direction of this robot.
+     * @param beepers    specifies this robot's number of beepers.
+     */
+    public Harvester (int street, int avenue, 
+           Direction direction, int beepers)
+    {
+        super(street, avenue, direction, beepers);
+    }
+    
+    /* Harvester methods: */
+    
+    /**
+     * Harvests the beepers using the robot
+     * 
+     * @precondition: are on base position, on next corner in front of robot is a beeper
+     * @postcondition: are on last crop and have picked up last beeper
+     */
+    public void harvestField()
+    {
+        move();
+        harvestTwoRows();
+        positionForNextTwoRows();
+        harvestTwoRows();
+        positionForNextTwoRows();
+        harvestTwoRows();
+        move();
+    }
+    
+    /**
+     * Harvests two rows of beepers
+     * 
+     * precondition - at the beginning of a row, facing beepers as well as currently on a beeper
+     * postcondition - facing wall, standing on plain corner, facing away from empty row
+     */
+    public void harvestTwoRows()
+    {
+       harvestOneRow();
+       goToNextRow();
+       harvestOneRow();
+    }
+    
+    /**
+     * Turns robot to right so robot can harvest next two rows
+     * 
+     * precondition - robot facing wall, standing on plain corner, facing away from empty row
+     * postcondition - robot facing away from wall, standing on beeper, facing row of beepers
+     */
+    public void positionForNextTwoRows()
+    {
+        turnRight();
+        move();
+        turnRight();
+    }
+    
+    /**
+     * robot harvests one row of beepers
+     * 
+     * precondition - robot facing away from wall, standing on beeper, facing row of beepers
+     * postcondition - robot facing away from wall, standing on empty corner, facing away from empty row
+     *  facing empty row
+     */
+    public void harvestOneRow()
+    {
+        pickBeeper();
+        move();
+        pickBeeper();
+        move();
+        pickBeeper();
+        move();
+        pickBeeper();
+        move();
+        pickBeeper();
+    }
+    
+    /**
+     * move to next row of beepers 
+     * 
+     * precondition - at the end of a row, facing away from the row (no walls to left)
+     * postcondition - at the beginning of the next row, facing the row
+     */
+    public void goToNextRow()
+    {
+        turnLeft();
+        move();
+        turnLeft();
+    }
+    
+    /** 
+     * turn robot 90 degrees to right
+     * 
+     * @precondition - none
+     * @postcondition - robot is facing 90degrees to the right of original direction
+     */
+    public void turnRight()
+    {
+        turnLeft();
+        turnLeft();
+        turnLeft();
+    }
+
+}
