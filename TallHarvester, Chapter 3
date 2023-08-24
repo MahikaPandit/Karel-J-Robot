@@ -1,0 +1,57 @@
+import kareltherobot.*;
+import java.awt.Color;
+
+/**
+ * Harvest a field of crops, (5x8)
+ * 
+ * @author Mahika Pandit
+ * @version 6-14-23
+ * 
+ */
+
+// This code is from Chapter 3 (figure 3_3b), it is one possible way to solve the problem, WITHOUT variables
+// The purpose of this code is to either be an answer key if one would like to check their work or if someone would like to see how to go about the problem
+// This code's constructor calls the harvester class, its superclass. This code is mainly for learning how to use inheritance, and to call the superclasses methods
+// Have fun :)
+
+public class TallHarvester extends Harvester
+{
+    /**
+     * Creates a TallHarvester object.
+     *
+     * @param street     specifies the vertical position on the grid
+     *                   of this robot.
+     * @param avenue     specifies the horizontal position on the grid
+     *                   of this robot.
+     * @param direction  specifies the direction of this robot.
+     * @param beepers    specifies this robot's number of beepers.
+     */
+    public TallHarvester (int street, int avenue, 
+           Direction direction, int beepers)
+    {
+        super(street, avenue, direction, beepers);
+    }
+    
+    /* TallHarvester methods: */
+
+    /**
+     * Harvests the beepers using the robot
+     * 
+     * @precondition: are on base position, on next corner in front of robot is a beeper
+     * @postcondition: are on last crop and have picked up last beeper
+     */
+    @Override
+    public void harvestField()
+    {
+        move();
+        harvestTwoRows();
+        positionForNextTwoRows();
+        harvestTwoRows();
+        positionForNextTwoRows();
+        harvestTwoRows();
+        positionForNextTwoRows();
+        harvestTwoRows();
+        move();
+    }
+
+}
